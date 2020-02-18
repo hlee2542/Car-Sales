@@ -23,10 +23,10 @@ export const mainReducer = (state = initialState, action) => {
             return {
                 additionalPrice: state.additionalPrice + action.feature.price,
                 car: {
-                    price: state.price + action.feature.price,
-                    name: state.name,
-                    image: state.image,
-                    features: state.features.concat(action.feature)
+                    price: state.car.price + action.feature.price,
+                    name: state.car.name,
+                    image: state.car.image,
+                    features: state.car.features.concat(action.feature)
                 },
                 additionalFeatures: state.additionalFeatures.filter(entry => entry.id !== action.feature.id)
             };
@@ -34,10 +34,10 @@ export const mainReducer = (state = initialState, action) => {
             return {
                 additionalPrice: state.additionalPrice - action.feature.price,
                 car: {
-                    price: state.price - action.feature.price,
-                    name: state.name,
-                    image: state.image,
-                    features: state.features.filter(entry => entry.id !== action.feature.id)
+                    price: state.car.price - action.feature.price,
+                    name: state.car.name,
+                    image: state.car.image,
+                    features: state.car.features.filter(entry => entry.id !== action.feature.id)
                 },
                 additionalFeatures: state.additionalFeatures.concat(action.feature)
             };
